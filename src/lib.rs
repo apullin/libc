@@ -147,6 +147,12 @@ cfg_if! {
 
         mod wasi;
         pub use wasi::*;
+    } else if #[cfg(target_arch = "arm")] {
+        mod fixed_width_ints;
+        pub use fixed_width_ints::*;
+
+        mod arm_none;
+        pub use arm_none::*;
     } else {
         // non-supported targets: empty...
     }
